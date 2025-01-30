@@ -24,23 +24,14 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-
-const formSchema = z.object({
-  name: z
-    .string()
-    .trim()
-    .min(2, "Minimum 2 characters")
-    .max(256, "Maximum 256 characters"),
-  email: z.string().trim().email(),
-  password: z
-    .string()
-    .min(8, "Minimum 8 characters")
-    .max(256, "Maximum 256 characters"),
-});
+import { registerSchema } from "../schema";
+import { useRegister } from "../api/use-register";
 
 export const SignUpCard = () => {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const { mutate } = useRegister();
+
+  const form = useForm<z.infer<typeof registerSchema>>({
+    resolver: zodResolver(registerSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -48,8 +39,9 @@ export const SignUpCard = () => {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
+  const onSubmit = (values: z.infer<typeof registerSchema>) => {
     console.log(values);
+    mutate({ json: values });
   };
 
   return (
