@@ -77,11 +77,7 @@ export const SignUpCard = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input
-                      {...field}
-                      type="name"
-                      placeholder="Enter name address"
-                    />
+                    <Input {...field} type="name" placeholder="Enter name" />
                   </FormControl>
                   <FormMessage>
                     {form.formState.errors.name?.message}
