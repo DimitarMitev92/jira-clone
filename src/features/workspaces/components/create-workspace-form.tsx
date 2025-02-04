@@ -50,6 +50,7 @@ export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
     const file = e.target.files?.[0];
     if (file) {
       form.setValue("image", file);
+      // TODO: Redirect to new workspace
     }
   };
 
