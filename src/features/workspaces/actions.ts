@@ -39,6 +39,6 @@ export const getWorkspaces = async () => {
 
     return workspaces;
   } catch (error) {
-    return null;
+    return { documents: [], total: 0 };
   }
 };
