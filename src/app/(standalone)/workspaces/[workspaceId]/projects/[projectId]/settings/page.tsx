@@ -17,7 +17,6 @@ const ProjectIdSettingsPage = async ({
 
   const initialValues = await getProject({ projectId: params.projectId });
   if (!initialValues) {
-    // Handle the case where initialValues is null
     return <div>Project not found</div>;
   }
 
