@@ -12,6 +12,13 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { DottedSeparator } from "@/components/dotted-separator";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -21,6 +28,7 @@ import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 import { useRouter } from "next/navigation";
 import { createTaskSchema } from "../schemas";
 import { DatePicker } from "@/components/date=picker";
+import { MemberAvatar } from "@/features/members/components/member-avatar";
 
 interface CreateTaskFormProps {
   onCancel?: () => void;
@@ -99,8 +107,32 @@ export const CreateTaskForm = ({
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Assignee</FormLabel>
-                      <FormControl></FormControl>
-                      <FormMessage />
+                      <Select
+                        defaultValue={field.value}
+                        onValueChange={field.onChange}
+                      >
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select assignee" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <FormMessage />
+                        <SelectContent>
+                          {memberOptions.map((member) => {
+                            return (
+                              <SelectItem key={member.id} value={member.id}>
+                                <div className="flex items-center gap-x-2">
+                                  <MemberAvatar
+                                    className="size--6"
+                                    name={member.name}
+                                  />
+                                  {member.name}
+                                </div>
+                              </SelectItem>
+                            );
+                          })}
+                        </SelectContent>
+                      </Select>
                     </FormItem>
                   )}
                 />
