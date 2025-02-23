@@ -127,7 +127,7 @@ export const columns: ColumnDef<Task>[] = [
   {
     id: "actions",
     cell: ({ row }) => {
-      const id = row.original.$d;
+      const id = row.original.$id;
       const projectId = row.original.projectId;
       return (
         <TaskActions id={id} projectId={projectId}>
