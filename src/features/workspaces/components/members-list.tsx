@@ -2,7 +2,7 @@
 
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   DropdownMenu,
   DropdownMenuContent,

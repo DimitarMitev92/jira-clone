@@ -25,7 +25,6 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useCreateTask } from "../api/use-create-task";
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
-import { useRouter } from "next/navigation";
 import { createTaskSchema } from "../schemas";
 import { DatePicker } from "@/components/date=picker";
 import { MemberAvatar } from "@/features/members/components/member-avatar";
@@ -43,7 +42,6 @@ export const CreateTaskForm = ({
   projectOptions,
   memberOptions,
 }: CreateTaskFormProps) => {
-  const router = useRouter();
   const workspaceId = useWorkspaceId();
   const { mutate, isPending } = useCreateTask();
 
@@ -58,7 +56,7 @@ export const CreateTaskForm = ({
     mutate(
       { json: { ...values, workspaceId } },
       {
-        onSuccess: ({ data }) => {
+        onSuccess: () => {
           form.reset();
           onCancel?.();
         },

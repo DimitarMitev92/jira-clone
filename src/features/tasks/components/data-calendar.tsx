@@ -8,7 +8,7 @@ import {
 } from "date-fns";
 import { CalendarIcon, ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { enUS } from "date-fns/locale";
-import { Calendar, dateFnsLocalizer, DateLocalizer } from "react-big-calendar";
+import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 
 import { Task } from "../types";
 import { useState } from "react";

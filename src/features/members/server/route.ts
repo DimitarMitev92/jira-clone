@@ -6,7 +6,6 @@ import { createAdminClient } from "@/lib/appwrite";
 import { getMember } from "../utils";
 import { DATABASE_ID, MEMBERS_ID } from "@/config";
 import { Query } from "node-appwrite";
-import { error } from "console";
 import { Member, MemberRole } from "../types";
 
 const app = new Hono()

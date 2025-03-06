@@ -8,7 +8,6 @@ import { ExternalLinkIcon, PencilIcon, TrashIcon } from "lucide-react";
 import { useDeleteTask } from "../api/use-delete-task";
 import { useConfirm } from "@/hooks/use-confirm";
 import { useRouter } from "next/navigation";
-import { workerData } from "worker_threads";
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 import { useEditTaskModal } from "../hooks/use-edit-task-modal";
 
